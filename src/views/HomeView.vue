@@ -8,8 +8,9 @@
                 <p v-if="searchError">Sorry something went wrong. Please try again.</p>
                 <li v-if="mapboxSearchResults.length === 0 && !searchError">No result found. Try different one.</li>
                 <template v-else>
-                    <li v-for="search in mapboxSearchResults" :key="search.id" class="p-1 cursor-pointer">
-                        {{ search.place_name }}
+                    <li v-for="searchResult in mapboxSearchResults" @click="previewCity(searchResult)"
+                        :key="searchResult.id" class="p-1 cursor-pointer">
+                        {{ searchResult.place_name }}
                     </li>
                 </template>
             </ul>
@@ -19,6 +20,7 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import axios from "axios";
+import { useRouter } from "vue-router";
 
 const MAPBOX_KEY = "pk.eyJ1Ijoic2hhaGVkdXp6YW1hbiIsImEiOiJjbDRtanAyZjkwMG0wM2JwaGVzaGZvZ3dkIn0.fbMl0Vxs6MqeS9lquIc61g";
 const searchQuery = ref('');
@@ -44,6 +46,19 @@ const getSearchResult = () => {
         };
 
     }, 300);
+}
+const router = useRouter();
+const previewCity = (result) => {
+    const [city, state] = result.place_name.split(',');
+    router.push({
+        name: 'cityView',
+        params: { city, state: state.replaceAll(" ", "") },
+        query: {
+            lat: result.geometry.coordinates[1],
+            lng: result.geometry.coordinates[0],
+            preview: true,
+        }
+    });
 }
 </script>
 
