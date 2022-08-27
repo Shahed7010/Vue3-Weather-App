@@ -3,7 +3,7 @@
         <Suspense>
             <CityWeather />
             <template #fallback>
-                <p>loading...</p>
+                <p class="text-white text-center pt-5">loading...</p>
             </template>
         </Suspense>
     </div>
