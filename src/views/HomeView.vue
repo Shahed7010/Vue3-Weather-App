@@ -15,12 +15,22 @@
                 </template>
             </ul>
         </div>
+        <!-- Saved weaher -->
+        <div class="flex flex-col gap-4">
+            <Suspense>
+                <CityList />
+                <template #fallback>
+                    <p class="text-white text-center pt-5">Loading saved city...</p>
+                </template>
+            </Suspense>
+        </div>
     </main>
 </template>
 <script setup>
 import { ref } from "@vue/reactivity";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import CityList from "../components/CityList.vue";
 
 const MAPBOX_KEY = "pk.eyJ1Ijoic2hhaGVkdXp6YW1hbiIsImEiOiJjbDRtanAyZjkwMG0wM2JwaGVzaGZvZ3dkIn0.fbMl0Vxs6MqeS9lquIc61g";
 const searchQuery = ref('');

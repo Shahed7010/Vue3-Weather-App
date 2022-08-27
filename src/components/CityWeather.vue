@@ -79,7 +79,7 @@ const API_ID = "90a9c5187866b2586b7e2917b34d4800";
 const getWeatherData = async () => {
     try {
         const weatherData = await axios.get(
-            `https://api.openweathermap.org/data/3.0/onecall?lat=${route.query.lat}&lon=${route.query.lng}&appid=${API_ID}&units=imperial`
+            `https://api.openweathermap.org/data/3.0/onecall?lat=${route.query.lat}&lon=${route.query.lng}&appid=${API_ID}&units=metric`
         )
         // cal current date & time
         const localOffset = new Date().getTimezoneOffset() * 60000;
