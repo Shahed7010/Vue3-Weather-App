@@ -46,7 +46,7 @@
 
         <hr class="border-white border-opacity-10 border w-full">
 
-        <!-- Daily weather -->
+        <!-- Weekly weather -->
         <div class="max-w-screen-md w-full py-12">
             <div class="mx-8 text-white">
                 <h2 class="mb-4">7 Day Forecast</h2>
@@ -98,5 +98,5 @@ const getWeatherData = async () => {
     }
 }
 const weatherData = await getWeatherData();
-console.log(weatherData);
+
 </script>

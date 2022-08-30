@@ -16,13 +16,14 @@
             </ul>
         </div>
         <!-- Saved weaher -->
-        <div class="flex flex-col gap-4">
-            <Suspense>
+        <div class="flex flex-col gap-4" :class="{ 'hidden': mapboxSearchResults }">
+            <CityList />
+            <!-- <Suspense>
                 <CityList />
                 <template #fallback>
                     <p class="text-white text-center pt-5">Loading saved city...</p>
                 </template>
-            </Suspense>
+            </Suspense> -->
         </div>
     </main>
 </template>
