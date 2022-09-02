@@ -13,8 +13,9 @@
                     {{ Math.round(value.weather.main.temp) }}&deg;
                 </p>
                 <div class="flex gap-2 justify-end">
-                    <span class="text-md">H: {{ Math.round(value.weather.main.temp_max) }}&deg;</span>
-                    <span class="text-md">L: {{ Math.round(value.weather.main.temp_min) }}&deg;</span>
+                    <span class="text-md">Feels Like: {{ Math.round(value.weather.main.feels_like) }}&deg;</span>
+                    <!-- <span class="text-md">H: {{ Math.round(value.weather.main.temp_max) }}&deg;</span>
+                    <span class="text-md">L: {{ Math.round(value.weather.main.temp_min) }}&deg;</span> -->
                 </div>
             </div>
         </div>
